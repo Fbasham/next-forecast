@@ -8,7 +8,7 @@ export default function MetaData(props) {
   return (
     <>
       <Head>
-        <title>{d?.title}</title>
+        <title className="capitalize">{d?.title}</title>
         <meta charSet="utf-8" />
         <meta name="description" content={d?.desc} />
         <meta name="author" content={d?.author} />

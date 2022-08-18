@@ -10,6 +10,7 @@ import Atlas from '../components/Atlas'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { AiOutlineSearch } from 'react-icons/ai'
+import Link from 'next/link'
 
 export default function Home(props) {
   const router = useRouter()
@@ -53,6 +54,14 @@ export default function Home(props) {
           ></input>
         </div>
       </form>
+      {!!Object.keys(data).length && (
+        <p>
+          More details about{' '}
+          <Link href={`/details/${city}`}>
+            <a className="underline capitalize text-slate-600">{city}</a>
+          </Link>
+        </p>
+      )}
       <div className="flex gap-5 mt-10">
         {isLoading && <Spinner />}
         {!!Object.keys(data).length && <Table data={data} />}
