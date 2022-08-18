@@ -5,9 +5,11 @@ import fr from '../locales/fr'
 import { fetchContent } from '../lib/cms'
 import Table from '../components/Table'
 import Spinner from '../components/Spinner'
+import Atlas from '../components/Atlas'
 
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { AiOutlineSearch } from 'react-icons/ai'
 
 export default function Home(props) {
   const router = useRouter()
@@ -36,29 +38,31 @@ export default function Home(props) {
   const t = props.locale === 'en' ? en : fr
   return (
     <div id="homeContent" className="container p-8 px-6 mx-auto mt-5">
-      <h1 className="mb-4 text-2xl">Next Forecast</h1>
+      <h1 className="mb-4 text-4xl">Next Forecast</h1>
       <form className="flex flex-col gap-2 mb-5" onSubmit={handleSubmit}>
         <label htmlFor="search">Get weather by city</label>
-        <input
-          id="search"
-          name="search"
-          className="px-4 py-1 border-2 rounded-lg border-slate-700"
-          onChange={(e) => setCity(e.target.value)}
-        ></input>
+        <div className="flex items-center">
+          <button className="self-stretch text-xl text-white border-2 rounded-l-lg border-slate-700 border-r-transparent bg-slate-500 hover:bg-slate-600">
+            <AiOutlineSearch />
+          </button>
+          <input
+            id="search"
+            name="search"
+            className="px-2 border-2 rounded-r-lg border-slate-700"
+            onChange={(e) => setCity(e.target.value)}
+          ></input>
+        </div>
       </form>
-      {isLoading && <Spinner />}
-      <div className="mt-5">
+      <div className="flex gap-5 mt-10">
+        {isLoading && <Spinner />}
         {!!Object.keys(data).length && <Table data={data} />}
+        {!!Object.keys(data).length && <Atlas data={data} />}
       </div>
     </div>
   )
 }
 
 export async function getStaticProps({ locale }) {
-  await fetchContent()
-
-  let content = { data: [{ id: 1 }, { id: 2 }] }
-
   /* istanbul ignore next */
   const langToggleLink = locale === 'en' ? '/fr/home' : '/home'
 
@@ -79,7 +83,7 @@ export async function getStaticProps({ locale }) {
   }
 
   return {
-    props: { locale, langToggleLink, content, meta },
+    props: { locale, langToggleLink, meta },
   }
 }
 

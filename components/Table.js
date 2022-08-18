@@ -1,11 +1,11 @@
 export default function Table({ data }) {
   return (
-    <table className="w-[500px]">
+    <table className="min-w-[500px]">
       <caption>{data.city.name} Weather</caption>
       <thead>
         <tr className="text-left" scope="col">
           <th>Time</th>
-          <th>Temperature</th>
+          <th>Temperature (°C)</th>
           <th>Weather</th>
         </tr>
       </thead>
