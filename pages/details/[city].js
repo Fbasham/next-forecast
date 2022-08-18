@@ -1,9 +1,9 @@
 import Table from '../../components/Table'
 import Atlas from '../../components/Atlas'
 import fetchWeather from '../../fetchWeather'
+import About from '../../components/About'
 
 export default function city({ data, city }) {
-  console.log(data)
   return (
     <div id="homeContent" className="container p-8 px-6 mx-auto mt-5">
       <h1 className="mb-4 text-4xl capitalize">
@@ -29,6 +29,7 @@ export default function city({ data, city }) {
           </div>
         </div>
       </div>
+      <About text="Created using ISR" />
     </div>
   )
 }
