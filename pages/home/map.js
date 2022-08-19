@@ -1,4 +1,4 @@
-import { Map, Marker } from 'pigeon-maps'
+import { Map as Mapp, Marker } from 'pigeon-maps'
 import { useEffect, useState } from 'react'
 import Breadcrumb from '../../components/Breadcrumb'
 import CityDetails from '../../components/CityDetails'
@@ -23,14 +23,14 @@ export default function Map() {
     <div className="container p-8 px-6 mx-auto mt-5">
       <Breadcrumb />
       <h1 className="mb-4 text-4xl">Weather by Coordinates</h1>
-      <Map
+      <Mapp
         height={300}
         defaultCenter={coord}
         defaultZoom={10}
         onClick={(e) => setCoord(e.latLng)}
       >
         <Marker width={25} anchor={coord} />
-      </Map>
+      </Mapp>
       <div className="flex gap-10 mt-5">
         {!!Object.keys(data).length && <Table data={data} />}
         {!!Object.keys(data).length && <CityDetails data={data} />}
