@@ -1,9 +1,9 @@
-import Table from '../../components/Table'
-import Atlas from '../../components/Atlas'
-import { fetchWeather } from '../../fetchWeather'
-import About from '../../components/About'
-import CityDetails from '../../components/CityDetails'
-import Breadcrumb from '../../components/Breadcrumb'
+import Table from '../../../components/Table'
+import Atlas from '../../../components/Atlas'
+import { fetchWeather } from '../../../fetchWeather'
+import About from '../../../components/About'
+import CityDetails from '../../../components/CityDetails'
+import Breadcrumb from '../../../components/Breadcrumb'
 
 export default function city({ data, city }) {
   return (

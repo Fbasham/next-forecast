@@ -1,9 +1,9 @@
 import { Map, Marker } from 'pigeon-maps'
 import { useEffect, useState } from 'react'
-import Breadcrumb from '../components/Breadcrumb'
-import CityDetails from '../components/CityDetails'
-import Table from '../components/Table'
-import About from '../components/About'
+import Breadcrumb from '../../components/Breadcrumb'
+import CityDetails from '../../components/CityDetails'
+import Table from '../../components/Table'
+import About from '../../components/About'
 
 export default function map() {
   let [coord, setCoord] = useState([42.9746, -82.4066])

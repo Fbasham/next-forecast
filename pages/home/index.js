@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
-import en from '../locales/en'
-import fr from '../locales/fr'
+import en from '../../locales/en'
+import fr from '../../locales/fr'
 
-import Table from '../components/Table'
-import Spinner from '../components/Spinner'
-import Atlas from '../components/Atlas'
-import About from '../components/About'
+import Table from '../../components/Table'
+import Spinner from '../../components/Spinner'
+import Atlas from '../../components/Atlas'
+import About from '../../components/About'
 
 import { useState } from 'react'
 import { useRouter } from 'next/router'
@@ -57,7 +57,7 @@ export default function Home(props) {
         </form>
         <p>
           Search weather using an{' '}
-          <Link href="/map">
+          <Link href="/home/map">
             <a className="underline">interactive map</a>
           </Link>
         </p>
@@ -65,7 +65,7 @@ export default function Home(props) {
       {!!Object.keys(data).length && (
         <p>
           More details about{' '}
-          <Link href={`/details/${city}`}>
+          <Link href={`/home/details/${city}`}>
             <a className="underline capitalize text-slate-600">{city}</a>
           </Link>
         </p>

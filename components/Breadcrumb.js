@@ -9,20 +9,17 @@ export default function Breadcrumb() {
     <nav className="mb-5" aria-label="breadcrumb">
       <ol className="list-chevron flex list-outside font-semibold">
         {paths.map((path, i) => {
-          return i === paths.length - 1 ? (
+          return !i ? null : i === paths.length - 1 ? (
             <li key={i} className="capitalize">
-              {paths[paths.length - 1]}
+              {path}
             </li>
           ) : (
-            <Link
-              key={i}
-              href={paths.slice(0, i + 1).map((e) => e || '/home').join`/`}
-            >
+            <Link key={i} href={paths.slice(0, i + 1).join`/`}>
               <a>
                 <li
                   className={`capitalize after:content-['>'] after:mx-2 text-blue-700 hover:text-blue-900 after:text-black`}
                 >
-                  {path || 'Home'}
+                  {path}
                 </li>
               </a>
             </Link>
