@@ -5,7 +5,7 @@ import CityDetails from '../../components/CityDetails'
 import Table from '../../components/Table'
 import About from '../../components/About'
 
-export default function map() {
+export default function Map() {
   let [coord, setCoord] = useState([42.9746, -82.4066])
   let [data, setData] = useState({})
 
