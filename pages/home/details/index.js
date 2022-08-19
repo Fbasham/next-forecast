@@ -13,7 +13,8 @@ export default function details() {
 
 export async function getStaticProps(context) {
   let { locale } = context
-  const langToggleLink = locale === 'en' ? '/fr/details/' : '/details/'
+  const langToggleLink =
+    locale === 'en' ? '/fr/home/details/' : '/home/details/'
 
   /* Place-holder Meta Data Props */
   const meta = {

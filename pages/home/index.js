@@ -70,7 +70,7 @@ export default function Home(props) {
           </Link>
         </p>
       )}
-      <div className="flex gap-5 mt-10">
+      <div className="md:flex gap-5 mt-10">
         {isLoading && <Spinner />}
         {!!Object.keys(data).length && <Table data={data} />}
         {!!Object.keys(data).length && <Atlas coord={data.city.coord} />}

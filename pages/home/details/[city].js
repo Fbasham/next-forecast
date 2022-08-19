@@ -12,7 +12,7 @@ export default function city({ data, city }) {
       <h1 className="mb-4 text-4xl capitalize">
         Next Forecast - {city} weather
       </h1>
-      <div className="flex gap-5 mt-10">
+      <div className="md:flex gap-5 mt-10">
         <Table data={data} />
         <div className="flex flex-col gap-5 grow">
           <Atlas coord={data.city.coord} />

@@ -44,7 +44,7 @@ export default function map() {
 
 export async function getStaticProps(context) {
   let { locale } = context
-  const langToggleLink = locale === 'en' ? '/fr/map' : '/map'
+  const langToggleLink = locale === 'en' ? '/fr/home/map' : '/home/map'
 
   /* Place-holder Meta Data Props */
   const meta = {
