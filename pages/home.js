@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import en from '../locales/en'
 import fr from '../locales/fr'
 
-import { fetchContent } from '../lib/cms'
 import Table from '../components/Table'
 import Spinner from '../components/Spinner'
 import Atlas from '../components/Atlas'
+import About from '../components/About'
 
 import { useState } from 'react'
 import { useRouter } from 'next/router'
@@ -30,7 +30,7 @@ export default function Home(props) {
   async function fetchWeather(city) {
     setData({})
     setIsLoadng(true)
-    let data = await (await fetch(`/api/weather/${city}`)).json()
+    let data = await (await fetch(`/api/weather/city/${city}`)).json()
     setData(data)
     setIsLoadng(false)
   }
@@ -65,8 +65,9 @@ export default function Home(props) {
       <div className="flex gap-5 mt-10">
         {isLoading && <Spinner />}
         {!!Object.keys(data).length && <Table data={data} />}
-        {!!Object.keys(data).length && <Atlas data={data} />}
+        {!!Object.keys(data).length && <Atlas coord={data.city.coord} />}
       </div>
+      <About text="Using client side rendering and api route with private API key" />
     </div>
   )
 }

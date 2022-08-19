@@ -1,10 +1,10 @@
 import { Map, Marker } from 'pigeon-maps'
 
-export default function Atlas({ data }) {
-  let coords = Object.values(data.city.coord)
+export default function Atlas({ coord }) {
+  coord = Object.values(coord)
   return (
-    <Map height={300} defaultCenter={coords} defaultZoom={10}>
-      <Marker width={25} anchor={coords} />
+    <Map height={300} defaultCenter={coord} defaultZoom={10}>
+      <Marker width={25} anchor={coord} />
     </Map>
   )
 }

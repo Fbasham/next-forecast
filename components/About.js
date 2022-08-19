@@ -9,12 +9,10 @@ export default function About({ text }) {
         className="relative text-slate-600"
         onClick={(e) => setClicked(!clicked)}
       >
-        <AiOutlineQuestionCircle
-          className={clicked ? 'text-red-600' : 'text-slate-600'}
-        />
+        <AiOutlineQuestionCircle className="hover:text-slate-800" />
       </button>
       {clicked && (
-        <div className="absolute w-32 text-sm border-2 bottom-10 right-10">
+        <div className="absolute min-w-[200px] text-sm border-2 bg-slate-500 bg-opacity-25 bottom-9 right-9 p-1">
           {text}
         </div>
       )}

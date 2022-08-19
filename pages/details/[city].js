@@ -1,6 +1,6 @@
 import Table from '../../components/Table'
 import Atlas from '../../components/Atlas'
-import fetchWeather from '../../fetchWeather'
+import { fetchWeather } from '../../fetchWeather'
 import About from '../../components/About'
 
 export default function city({ data, city }) {
@@ -12,7 +12,7 @@ export default function city({ data, city }) {
       <div className="flex gap-5 mt-10">
         <Table data={data} />
         <div className="flex flex-col gap-5 grow">
-          <Atlas data={data} />
+          <Atlas coord={data.city.coord} />
           <div>
             <dl>
               <dt className="font-bold">Population</dt>
@@ -29,7 +29,7 @@ export default function city({ data, city }) {
           </div>
         </div>
       </div>
-      <About text="Created using ISR" />
+      <About text="Using ISR (getStaticProps with revalidate key)" />
     </div>
   )
 }
@@ -47,7 +47,8 @@ export async function getStaticProps(context) {
   let data = await fetchWeather(city)
 
   let { locale } = context
-  const langToggleLink = locale === 'en' ? '/fr/test' : '/test'
+  const langToggleLink =
+    locale === 'en' ? '/fr/details/' + city : '/details/' + city
 
   /* Place-holder Meta Data Props */
   const meta = {
