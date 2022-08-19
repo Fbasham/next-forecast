@@ -1,6 +1,9 @@
 import { Map, Marker } from 'pigeon-maps'
 import { useEffect, useState } from 'react'
+import Breadcrumb from '../components/Breadcrumb'
+import CityDetails from '../components/CityDetails'
 import Table from '../components/Table'
+import About from '../components/About'
 
 export default function map() {
   let [coord, setCoord] = useState([42.9746, -82.4066])
@@ -18,7 +21,8 @@ export default function map() {
 
   return (
     <div className="container p-8 px-6 mx-auto mt-5">
-      <h1>Weather by Coordinates</h1>
+      <Breadcrumb />
+      <h1 className="mb-4 text-4xl">Weather by Coordinates</h1>
       <Map
         height={300}
         defaultCenter={coord}
@@ -27,7 +31,13 @@ export default function map() {
       >
         <Marker width={25} anchor={coord} />
       </Map>
-      {!!Object.keys(data).length && <Table data={data} />}
+      <div className="flex gap-10 mt-5">
+        {!!Object.keys(data).length && <Table data={data} />}
+        {!!Object.keys(data).length && <CityDetails data={data} />}
+      </div>
+      <About
+        text={'Using client side rendering and api route with private API key'}
+      />
     </div>
   )
 }

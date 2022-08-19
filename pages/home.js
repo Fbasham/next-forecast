@@ -40,20 +40,28 @@ export default function Home(props) {
   return (
     <div id="homeContent" className="container p-8 px-6 mx-auto mt-5">
       <h1 className="mb-4 text-4xl">Next Forecast</h1>
-      <form className="flex flex-col gap-2 mb-5" onSubmit={handleSubmit}>
-        <label htmlFor="search">Get weather by city</label>
-        <div className="flex items-center">
-          <button className="self-stretch text-xl text-white border-2 rounded-l-lg border-slate-700 border-r-transparent bg-slate-500 hover:bg-slate-600">
-            <AiOutlineSearch />
-          </button>
-          <input
-            id="search"
-            name="search"
-            className="px-2 border-2 rounded-r-lg border-slate-700"
-            onChange={(e) => setCity(e.target.value)}
-          ></input>
-        </div>
-      </form>
+      <div className="flex gap-10">
+        <form className="flex flex-col gap-2 mb-5" onSubmit={handleSubmit}>
+          <label htmlFor="search">Get weather by city</label>
+          <div className="flex items-center">
+            <button className="self-stretch text-xl text-white border-2 rounded-l-lg border-slate-700 border-r-transparent bg-slate-500 hover:bg-slate-600">
+              <AiOutlineSearch />
+            </button>
+            <input
+              id="search"
+              name="search"
+              className="px-2 border-2 rounded-r-lg border-slate-700"
+              onChange={(e) => setCity(e.target.value)}
+            ></input>
+          </div>
+        </form>
+        <p>
+          Search weather using an{' '}
+          <Link href="/map">
+            <a className="underline">interactive map</a>
+          </Link>
+        </p>
+      </div>
       {!!Object.keys(data).length && (
         <p>
           More details about{' '}
