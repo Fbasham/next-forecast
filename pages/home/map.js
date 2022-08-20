@@ -30,14 +30,18 @@ export default function Map() {
           height={300}
           center={[lat, lon]}
           defaultZoom={10}
-          onClick={(e) => setCoord(e.latLng)}
+          onClick={(e) => {
+            setCoord(e.latLng)
+            setLat(e.latLng[0])
+            setLon(e.latLng[1])
+          }}
         >
           <Marker width={25} anchor={[lat, lon]} />
         </Mapp>
         <div className="flex flex-col md:flex-row md:justify-center md:items-center">
-          <lebel htmlFor="lat" className="font-semibold mr-2">
+          <label htmlFor="lat" className="font-semibold mr-2">
             Set Latitude
-          </lebel>
+          </label>
           <input
             type="number"
             step=".01"
@@ -47,9 +51,9 @@ export default function Map() {
             onChange={(e) => setLat(+e.target.value)}
             className="border-2 rounded-md py-1 px-2 md:mr-2"
           ></input>
-          <lebel htmlFor="lon" className="font-semibold mr-2">
+          <label htmlFor="lon" className="font-semibold mr-2">
             Set Longitude
-          </lebel>
+          </label>
           <input
             type="number"
             step=".01"
