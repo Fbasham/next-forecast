@@ -35,7 +35,7 @@ export default function Map() {
           <Marker width={25} anchor={[lat, lon]} />
         </Mapp>
         <div className="flex flex-col md:flex-row md:justify-center md:items-center">
-          <lebel htmlFor="lat" className="font-semibold" className="mr-2">
+          <lebel htmlFor="lat" className="font-semibold mr-2">
             Set Latitude
           </lebel>
           <input
@@ -47,7 +47,7 @@ export default function Map() {
             onChange={(e) => setLat(+e.target.value)}
             className="border-2 rounded-md py-1 px-2 md:mr-2"
           ></input>
-          <lebel htmlFor="lon" className="font-semibold" className="mr-2">
+          <lebel htmlFor="lon" className="font-semibold mr-2">
             Set Longitude
           </lebel>
           <input
