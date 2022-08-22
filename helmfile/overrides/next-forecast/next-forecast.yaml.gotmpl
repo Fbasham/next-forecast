@@ -55,7 +55,7 @@ service:
 ingress:
     enabled: true
     annotations: {}
-    path = /
+    path: /
     hosts:
       {{ requiredEnv "PROJECT" }}-{{ requiredEnv "BRANCH" | lower }}.{{ requiredEnv "BASE_DOMAIN" }}
 resources:
