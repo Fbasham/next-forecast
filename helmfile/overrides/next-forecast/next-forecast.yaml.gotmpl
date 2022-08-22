@@ -44,7 +44,7 @@ secrets:
           {{ requiredEnv "INGRESS_TLS_KEY" }}
 */}}
 image:
-  repository: {{ requiredEnv "CLOUD_ACR_DOMAIN" }}/{{ requiredEnv "PROJECT" }}
+  repository: {{ requiredEnv "ACR_DOMAIN" }}/{{ requiredEnv "PROJECT" }}
   tag: "{{ env "DOCKER_TAG" | default "latest" }}" 
   pullPolicy: Always
 service:
@@ -54,17 +54,10 @@ service:
     prometheus.io/port: "3000"
 ingress:
     enabled: true
-    annotations: 
-      kubernetes.io/ingress.class: azure/application-gateway
-    tls:
-      - hosts:
-          - {{ requiredEnv "PROJECT" }}-{{ requiredEnv "BRANCH" | lower }}.{{ requiredEnv "BASE_DOMAIN" }}
-        secretName: ingress-tls-{{ requiredEnv "BRANCH" | lower }}
+    annotations: {},
+    path = /
     hosts:
-    - host: {{ requiredEnv "PROJECT" }}-{{ requiredEnv "BRANCH" | lower }}.{{ requiredEnv "BASE_DOMAIN" }}
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
+      {{ requiredEnv "PROJECT" }}-{{ requiredEnv "BRANCH" | lower }}.{{ requiredEnv "BASE_DOMAIN" }}
 resources:
   requests:
     cpu: 200m
