@@ -1,4 +1,5 @@
 export default function CityDetails({ data }) {
+  console.log(data)
   return (
     <div>
       <dl>
