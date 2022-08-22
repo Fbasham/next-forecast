@@ -14,9 +14,10 @@ export default function MetaData(props) {
         <meta name="author" content={d?.author} />
         <meta name="keywords" content={d?.keywords} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-//         <meta httpEquiv="Content-Security-Policy" content="'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' https://*.openstreetmap.org/; style-src 'self' 'unsafe-inline' https://*.openstreetmap.org/; connect-src 'self' https://*.openstreetmap.org/; frame-src https://*.openstreetmap.org/"/>
         <meta
-          httpEquiv="Content-Security-Policy" content="script-src 'nonce-{script value}' 'strict-dynamic' https: 'unsafe-eval'; img-src 'self' https://*.openstreetmap.org; frame-src *.openstreetmap.org; connect-src 'self' https://*.openstreetmap.org data: blob:; style-src 'nonce-{style value}' https://*.openstreetmap.org"/>
+          httpEquiv="Content-Security-Policy"
+          content="script-src 'nonce-{script value}' 'strict-dynamic' https: 'unsafe-eval'; img-src 'self' https://*.openstreetmap.org; frame-src *.openstreetmap.org; connect-src 'self' https://*.openstreetmap.org data: blob:; style-src 'nonce-{style value}' https://*.openstreetmap.org"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
     </>
