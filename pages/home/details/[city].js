@@ -1,6 +1,6 @@
 import Table from '../../../components/Table'
 import Atlas from '../../../components/Atlas'
-import { fetchWeather } from '../../../fetchWeather'
+import { fetchWeather } from '../../../lib/fetchWeather'
 import About from '../../../components/About'
 import CityDetails from '../../../components/CityDetails'
 import Breadcrumb from '../../../components/Breadcrumb'

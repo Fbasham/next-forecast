@@ -1,4 +1,4 @@
-import { fetchWeatherByCoord } from '../../../../fetchWeather'
+import { fetchWeatherByCoord } from '../../../../lib/fetchWeather'
 
 export default async function handler(req, res) {
   let { coord } = req.query
