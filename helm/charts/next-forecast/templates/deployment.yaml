@@ -57,3 +57,19 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+spec:
+  template:
+    spec:
+      containers:
+        env:
+{{ $files := .Files }}
+{{- range tuple ".env" -}}
+    {{- $file := $files.Get . | trimSuffix "\n" -}}
+    {{- range $line := splitList "\n" $file -}}
+      {{- $kv := splitList "=" $line -}}
+      {{- $k := first $kv -}}
+      {{- $v := last $kv -}}
+      {{- printf "- name: \"%s\"\n" $k | indent 8 }}
+      {{- printf "  value: \"%s\"\n" $v }}
+    {{- end }}
+{{- end }}

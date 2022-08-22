@@ -1,6 +1,4 @@
 export default function CityDetails({ data }) {
-  console.log(process.env.WEATHER_API_KEY)
-  console.log(data)
   return (
     <div>
       <dl>
