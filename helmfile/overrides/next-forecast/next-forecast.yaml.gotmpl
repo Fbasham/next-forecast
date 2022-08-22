@@ -54,7 +54,7 @@ service:
     prometheus.io/port: "3000"
 ingress:
     enabled: true
-    annotations: {},
+    annotations: {}
     path = /
     hosts:
       {{ requiredEnv "PROJECT" }}-{{ requiredEnv "BRANCH" | lower }}.{{ requiredEnv "BASE_DOMAIN" }}
