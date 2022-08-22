@@ -16,7 +16,7 @@ export default function MetaData(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           httpEquiv="Content-Security-Policy"
-          content="script-src 'nonce-{script value}' 'strict-dynamic' https: 'unsafe-eval'; img-src 'self' https://*.openstreetmap.org; frame-src *.openstreetmap.org; connect-src 'self' https://*.openstreetmap.org data: blob:"
+          content="default-src 'self'; frame-src www.openstreetmap.org; style-src 'self'; script-src 'self' www.openstreetmap.org;"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
