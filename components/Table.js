@@ -1,7 +1,7 @@
 export default function Table({ data }) {
   return (
     <table className="min-w-[500px]">
-      <caption>{data.city.name} Weather</caption>
+      <caption>{data.city?.name} Weather</caption>
       <thead>
         <tr className="text-left" scope="col">
           <th>Time</th>

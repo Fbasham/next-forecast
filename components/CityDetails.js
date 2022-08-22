@@ -1,4 +1,5 @@
 export default function CityDetails({ data }) {
+  console.log(process.env.WEATHER_API_KEY)
   console.log(data)
   return (
     <div>
@@ -6,7 +7,7 @@ export default function CityDetails({ data }) {
         <dt className="font-bold">Population</dt>
         <dd>{data.city?.population}</dd>
         <dt className="font-bold">Latitude</dt>
-        <dd>{data.city?.coord.lat}</dd>
+        <dd>{data.city?.coord?.lat}</dd>
         <dt className="font-bold">Longitude</dt>
         <dd>{data.city?.coord?.lon}</dd>
         <dt className="font-bold">Sunrise</dt>
