@@ -43,6 +43,9 @@ secrets:
         tls.key: |
           {{ requiredEnv "INGRESS_TLS_KEY" }}
 */}}
+extraEnv:
+    - name: WEATHER_API_KEY
+      value: {{ requiredEnv "WEATHER_API_KEY" }}
 image:
   repository: {{ requiredEnv "ACR_DOMAIN" }}/{{ requiredEnv "PROJECT" }}
   tag: "{{ env "DOCKER_TAG" | default "latest" }}" 
