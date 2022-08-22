@@ -19,6 +19,7 @@ extraEnv:
           name: web-example-secret
           key: example-secret-password         
 */}}
+{{/*
 deployment: 
   labels: 
     branch: "{{ requiredEnv "APP_LABEL_BRANCH" | replace " " "-" }}"
@@ -41,6 +42,7 @@ secrets:
           {{ requiredEnv "INGRESS_TLS_CERT" }}
         tls.key: |
           {{ requiredEnv "INGRESS_TLS_KEY" }}
+*/}}
 image:
   repository: {{ requiredEnv "CLOUD_ACR_DOMAIN" }}/{{ requiredEnv "PROJECT" }}
   tag: "{{ env "DOCKER_TAG" | default "latest" }}" 
